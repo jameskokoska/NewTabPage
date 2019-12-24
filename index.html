@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css"> 
+        <title>Home</title> 
+        <script>
+        function startTime() {
+            var today = new Date();
+            var h24 = today.getHours();
+            var h = h24 % 12;
+            if (h24 == 0)
+                h = 12;
+            var m = today.getMinutes();
+            m = checkTime(m);
+            if (h24 < 12)
+                var ampm = "AM"
+            else
+                var ampm = "PM"
+            document.getElementById('hour').innerHTML = h;
+            document.getElementById('minutes').innerHTML = m;
+            document.getElementById('ampm').innerHTML = ampm;
+            var t = setTimeout(startTime, 500);
+        }
+        function greeting(){
+            var today = new Date();
+            var h = today.getHours();
+            var name = "James";
+            var greetings = ["Hello "  + name, "Hi there "  + name, "Hi "  + name, "How are you, " + name + "?", "What's up " + name + "?", "What are you up to " + name + "?"];
+            greetingsMorning = ["Good morning "  + name, "Hi there "  + name, "Hi "  + name, "How are you, " + name + "?"];
+            greetingsEvening = ["Good evening  "  + name];
+            greetingsLate = ["It's getting late " + name, "Good night " + name];
+
+            if (Math.floor(Math.random() * 2) == 0){
+                if (h <= 12 && h >= 3)
+                    var greeting = greetingsMorning[Math.floor(Math.random()*greetingsMorning.length)];
+                else if (h <= 22 && h >= 19)
+                    var greeting = greetingEvening[Math.floor(Math.random()*greetingsEvening.length)];
+                else if (h >= 23 || h <= 2)
+                    var greeting = greetingsLate[Math.floor(Math.random()*greetingsLate.length)];
+                else
+                    var greeting = greetings[Math.floor(Math.random()*greetings.length)];
+            } else {
+                var greeting = greetings[Math.floor(Math.random()*greetings.length)];
+            }
+            document.getElementById('greeting').innerHTML = greeting;
+
+        }
+        function checkTime(i) {
+            if (i < 10) {i = "0" + i};
+            return i;
+        }
+        
+        </script>
+    </head>
+    <body onload="startTime(), greeting()">
+        <div class="background"></div>            
+        
+        <div id="greeting" class="message"></div>
+        <div class="time">
+            <div class="timeBefore">It's&nbsp&nbsp</div>
+            <div id="hour"></div>
+            <div class="timeFlash">:</div>
+            <div id="minutes"></div>
+            <div class="timeAfter">&nbsp&nbsp</div>
+            <div id="ampm" class="timeAfter"></div>
+
+        </div>
+        <div class="bookmarksContainer bookmarksBackground"></div>
+        <div class="bookmarksContainer bookmarksBorder">
+            <div class="bookmarksImgContainer">
+                <a href="http://www.google.ca"><img src="assets/google-brands.svg"></a>
+                <a href="http://www.gmail.com"><img src="assets/envelope-solid.svg"></a>
+                <a href="https://drive.google.com/drive/my-drive"><img src="assets/google-drive-brands.svg"></a>
+                <a href="http://q.utoronto.ca/"><img src="assets/book-solid.svg"></a>
+                <a href="https://www.facebook.com/"><img src="assets/facebook-square-brands.svg"></a>
+                <a href="https://www.facebook.com/messages/t/"><img src="assets/facebook-messenger-brands.svg"></a>
+                <a href="https://www.ticktick.com/#q/all/tasks"><img src="assets/check-square-solid.svg"></a>
+                <a href="https://open.spotify.com/browse/featured"><img src="assets/spotify-brands.svg"></a>
+
+
+
+
+            </div>
+        </div>
+            
+    </body>
+</html>

@@ -1,0 +1,273 @@
+@font-face {
+  font-family: "ProductSansBold";
+  src: url("assets/fonts/Product Sans Bold.ttf")  format("truetype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "ProductSansRegular";
+  src: url("assets/fonts/Product Sans Regular.ttf")  format("truetype");
+}
+/*
+https://www.w3schools.com/js/tryit.asp?filename=tryjs_elseif
+Add google search bar
+Add bookmarks and icons and animations
+make clock animate
+flash : for clock
+*/
+
+@keyframes circleIn{
+  0%{transform: scale(0);
+    opacity:0;
+}
+  100%{transform: scale(1);
+    opacity:1;
+  }
+}
+
+
+
+html, body {
+  scroll-behavior: smooth; 
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  background-color: black;
+} 
+
+.background{
+  /*background-image: url("assets/Landscape2.jpg");*/
+  background-image: url("https://source.unsplash.com/random/1920x1080/?landscape,water,city");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width:100%;
+  height:100%;
+  opacity:0;
+  animation: fadeInBG forwards 1.3s;
+  animation-delay: 2s;
+  position: fixed;
+  top:0;
+  left:0;
+  z-index:0;
+}
+
+@keyframes fadeInBG{
+  0%{
+    opacity:0;
+}
+  100%{
+    opacity:0.7;
+  }
+}
+
+.message{
+  font-family: 'ProductSansRegular';
+  font-size: 4vw;
+  text-align: center;
+  z-index: 1;
+  opacity: 0;
+  animation: messageIn 9s forwards ease-in-out;
+  animation-delay: 0.5s;
+  padding-top: 30vh;
+  color: white;
+  text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
+}
+
+@keyframes messageIn {
+  0% {
+    opacity: 0;
+    transform: translate(0px, -1vw);
+  }
+  10% {
+    opacity:1;
+    transform: translate(0px, 0vw);
+  }
+  15% {
+    opacity:1;
+    transform: translate(0px, 0vw) scale(1);
+  }
+  25%{
+    opacity:1;
+    transform: translate(0px, -5vw) scale(1);
+  }
+  100%{
+    opacity:1;
+    transform: translate(0px, -5vw) scale(1);
+  }
+}
+
+.time{
+  font-family: 'ProductSansBold';
+  font-size: 10vw;
+  z-index: 1;
+  opacity: 0;
+  animation: timeIn 10s forwards ease-in-out;
+  animation-delay: 0.5s;
+  /*animation: timeIn 1s forwards ease-in-out;
+  animation-delay: 0;*/
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  padding: 5px;
+  width: 100%;
+  justify-content: center;
+  text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
+}
+
+.timeBefore{
+  display:inline-block;
+  font-size: 4vw;
+  animation: timeOut1 1s forwards;
+  animation-delay: 5s;
+  font-family: 'ProductSansRegular';
+
+}
+
+.timeAfter{
+  display:inline-block;
+  font-size: 4vw;
+  animation: timeOut2 1s forwards;
+  animation-delay: 5s;
+  font-family: 'ProductSansRegular';
+}
+
+.timeFlash{
+  animation: flashFade 2s infinite ease-in-out;
+  display:inline-block;
+  font-family: 'ProductSansRegular';
+}
+
+@keyframes flashFade {
+  0% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity:0.9;
+  }
+}
+
+@keyframes timeOut1 {
+  0% {
+    opacity: 1;
+    transform: translate(0vw, 0vw);
+  }
+  100% {
+    opacity:0;
+    transform: translate(-1vw, 0vw);
+  }
+}
+
+@keyframes timeOut2 {
+  0% {
+    opacity: 1;
+    transform: translate(0vw, 0vw);
+  }
+  100% {
+    opacity:0;
+    transform: translate(1vw, 0vw);
+  }
+}
+
+@keyframes timeIn {
+  0% {
+    opacity: 0;
+    transform: translate(0px, -1vw);
+  }
+  10% {
+    opacity:0;
+    transform: translate(0px, 0vw);
+  }
+  15% {
+    opacity:0;
+    transform: translate(0px, 0vw) scale(1);
+  }
+  20%{
+    opacity:0;
+  }
+  25%{
+    opacity:1;
+    transform: translate(0px, -5vw) scale(1);
+  }
+  100%{
+    opacity:1;
+    transform: translate(0px, -5vw) scale(1);
+  }
+}
+
+.bookmarksContainer{
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width:0vw;
+  height: 7vw;
+  top:68vh;
+  border-radius: 1vw;
+  animation: expand 1s forwards;
+  animation-delay: 3s;
+
+}
+.bookmarksBackground{
+  
+  border-radius: 1vw;
+  background-color: white;
+  opacity:0.3;
+}
+
+.bookmarksBorder{
+  backdrop-filter: blur(20px);    
+  -webkit-backdrop-filter: blur(20px);
+  opacity:1;
+}
+
+.bookmarksImgContainer{
+  padding-left:5vw;
+  padding-top:1vw;
+}
+
+.bookmarksBorder img{
+  width:3vw;
+  height: 3vw;
+  padding: 1vw;
+}
+
+.bookmarksImgContainer img{
+  transition: padding-top 0.4s, transform 0.2s;
+  transform-origin: bottom;
+  transform: scale(1);
+  float:left;
+  width:3vw;
+  height: 3vw;
+  animation: fadeIn 1s forwards;
+  opacity: 0;
+  animation-delay: 3.9s;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(13deg) brightness(104%) contrast(103%);
+}
+/*https://codepen.io/sosuke/pen/Pjoqqp*/
+
+@keyframes fadeIn{
+  0%{
+    opacity:0;
+}
+  100%{
+    opacity:1;
+  }
+}
+
+.bookmarksImgContainer img:hover{
+  padding-top:1.7vw;
+  transform: scale(1.3);
+}
+
+@keyframes expand{
+  0%{width:0vw;
+}
+  100%{width:50vw;
+    box-shadow: 0 -0.3vw 0.6vw 0.1vw #00000031;
+
+  }
+}
