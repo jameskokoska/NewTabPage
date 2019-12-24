@@ -1,5 +1,5 @@
 # NewTabPage
-# Goal
+## Goal
 * Create a custom 'new tab' page for the Chrome web browser
 * Inspired by [Momentum](https://chrome.google.com/webstore/detail/momentum/laookkfknpbbblfpciffpaejjkokdgca?hl=en)
 * Learn simple Javascript and incorporate it into a webpage
@@ -8,3 +8,5 @@
 * Custom animations
 * Custom shortcuts
 * Random greeting and time
+## Preview
+![Preview](/assets/Preview.png)
