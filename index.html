@@ -8,7 +8,7 @@
             var today = new Date();
             var h24 = today.getHours();
             var h = h24 % 12;
-            if (h24 == 0)
+            if (h24 == 0 || h24 == 12)
                 h = 12;
             var m = today.getMinutes();
             m = checkTime(m);
@@ -23,7 +23,7 @@
         }
         function greeting(){
             var today = new Date();
-            var h = today.getHours();
+            var h24 = today.getHours();
             var name = "James";
             var greetings = ["Hello "  + name, "Hi there "  + name, "Hi "  + name, "How are you, " + name + "?", "What's up " + name + "?", "What are you up to " + name + "?"];
             greetingsMorning = ["Good morning "  + name, "Hi there "  + name, "Hi "  + name, "How are you, " + name + "?"];
@@ -31,11 +31,11 @@
             greetingsLate = ["It's getting late " + name, "Good night " + name];
 
             if (Math.floor(Math.random() * 2) == 0){
-                if (h <= 12 && h >= 3)
+                if (h24 <= 12 && h24 >= 3)
                     var greeting = greetingsMorning[Math.floor(Math.random()*greetingsMorning.length)];
-                else if (h <= 22 && h >= 19)
+                else if (h24 <= 22 && h24 >= 19)
                     var greeting = greetingEvening[Math.floor(Math.random()*greetingsEvening.length)];
-                else if (h >= 23 || h <= 2)
+                else if (h24 >= 23 || h24 <= 2)
                     var greeting = greetingsLate[Math.floor(Math.random()*greetingsLate.length)];
                 else
                     var greeting = greetings[Math.floor(Math.random()*greetings.length)];
