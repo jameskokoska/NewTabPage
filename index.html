@@ -25,17 +25,17 @@
             var today = new Date();
             var h24 = today.getHours();
             var name = "James";
-            var greetings = ["Hello "  + name, "Hi there "  + name, "Hi "  + name, "How are you, " + name + "?", "What's up " + name + "?", "What are you up to " + name + "?"];
-            greetingsMorning = ["Good morning "  + name, "Hi there "  + name, "Hi "  + name, "How are you, " + name + "?"];
+            var greetings = ["Hello "  + name, "Hi there "  + name, "Hi "  + name, "How are you, " + name + "?", "What's up " + name + "?", "What are you up to " + name + "?", "Hello there", "Hope everything is well", "Stay positive " + name, "How goes it?"];
+            greetingsMorning = ["Good morning "  + name, "Hi there "  + name, "Hi "  + name, "How are you, " + name + "?", "Good day", "Good day " + name];
             greetingsEvening = ["Good evening  "  + name];
-            greetingsLate = ["It's getting late " + name, "Good night " + name];
+            greetingsLate = ["It's getting late " + name, "Good night " + name, "You should go to sleep " + name, "Get some rest " + name];
 
             if (Math.floor(Math.random() * 2) == 0){
-                if (h24 <= 12 && h24 >= 3)
+                if (h24 <= 12 && h24 >= 6)
                     var greeting = greetingsMorning[Math.floor(Math.random()*greetingsMorning.length)];
                 else if (h24 <= 22 && h24 >= 19)
                     var greeting = greetingsEvening[Math.floor(Math.random()*greetingsEvening.length)];
-                else if (h24 >= 23 || h24 <= 2)
+                else if (h24 >= 23 || h24 <= 5)
                     var greeting = greetingsLate[Math.floor(Math.random()*greetingsLate.length)];
                 else
                     var greeting = greetings[Math.floor(Math.random()*greetings.length)];
